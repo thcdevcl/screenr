@@ -16,7 +16,7 @@ export default () => (
           Capture screenshots from url's!
         </Typography>
       </Grid>
-      <Grid item xs={12} md={6} component={Paper} elevation={5}>
+      <Grid item xs={9} md={6} component={Paper} elevation={5}>
         <CaptureForm />
       </Grid>
     </Grid>

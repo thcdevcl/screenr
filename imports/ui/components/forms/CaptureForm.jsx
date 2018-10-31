@@ -14,7 +14,7 @@ const styles = theme => ({
 });
 
 class CaptureForm extends Component {
-  state = { url: "" };
+  state = { url: "http://www.emol.com/" };
 
   handleChange = event => {
     const name = event.target.id,
@@ -23,7 +23,8 @@ class CaptureForm extends Component {
   };
 
   handleSubmit = () => {
-    console.log("handleSubmit");
+    const { url } = this.state;
+    Meteor.call("screenshots.create", url);
   };
 
   render() {

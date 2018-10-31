@@ -1,0 +1,10 @@
+{
+  "public": {
+    "cloudinary": {
+      "cloud_name": "screenr",
+      "upload_preset": "virjwdpt",
+      "api_key": "596938858858215",
+      "api_secret": "WE72H4xfHT6YvvyGlubuXtQbWkA"
+    }
+  }
+}

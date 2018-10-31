@@ -2,7 +2,8 @@
   "name": "screenr",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "dev": "meteor run --settings settings.json"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
