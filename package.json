@@ -9,6 +9,7 @@
     "@babel/runtime": "^7.0.0",
     "@material-ui/core": "^3.3.2",
     "bcrypt": "^3.0.2",
+    "bufferutil": "^4.0.0",
     "classnames": "^2.2.6",
     "jquery": "^3.3.1",
     "jquery-validation": "^1.18.0",
@@ -18,6 +19,7 @@
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
-    "simpl-schema": "^1.5.3"
+    "simpl-schema": "^1.5.3",
+    "utf-8-validate": "^5.0.1"
   }
 }
