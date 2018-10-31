@@ -42,6 +42,10 @@ Screenshots.schema = new SimpleSchema({
     type: String,
     label: "URL",
     optional: false
+  },
+  imgid: {
+    type: String,
+    optional: false
   }
 });
 

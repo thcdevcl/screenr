@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Bert } from "meteor/themeteorchef:bert";
 
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -6,6 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 
 import Form from "../utils/ValidatedForm";
+import Spinner from "../utils/Spinner";
 
 const styles = theme => ({
   rootContainer: {
@@ -14,7 +16,7 @@ const styles = theme => ({
 });
 
 class CaptureForm extends Component {
-  state = { url: "http://www.emol.com/" };
+  state = { loading: false, url: "https://www.google.com/" };
 
   handleChange = event => {
     const name = event.target.id,
@@ -24,18 +26,35 @@ class CaptureForm extends Component {
 
   handleSubmit = () => {
     const { url } = this.state;
-    Meteor.call("screenshots.create", url);
+    this.toggleLoading();
+    Meteor.call("screenshots.create", url, (err, res) => {
+      if (res)
+        Bert.alert({
+          title: "Success!",
+          message: "Screenshot captured",
+          type: "success",
+          style: "growl-top-right",
+          icon: "fa-check"
+        });
+      this.toggleLoading();
+      this.cleanForm();
+    });
   };
+
+  toggleLoading = () => this.setState({ loading: !this.state.loading });
+
+  cleanForm = () => this.setState({ url: "" });
 
   render() {
     const { classes } = this.props;
-    const { url } = this.state;
+    const { loading, url } = this.state;
     const rules = {
       url: {
         required: true,
         url: true
       }
     };
+    if (loading) return <Spinner />;
     return (
       <Form
         onHandleSubmit={this.handleSubmit}

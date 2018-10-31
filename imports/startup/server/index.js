@@ -1,3 +1,7 @@
+import { Meteor } from "meteor/meteor";
+
 import "../../api";
 
-console.log("server");
+Meteor.startup(() => {
+  process.env.CLOUDINARY_URL = `cloudinary://596938858858215:WE72H4xfHT6YvvyGlubuXtQbWkA@screenr`;
+});
